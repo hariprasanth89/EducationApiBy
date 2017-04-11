@@ -1,0 +1,41 @@
+<html>
+<head>
+</head>
+<body style="width: 100%">
+	<div style="width: 100%; text-align: left">
+		<div>
+			<div style="position: relative; left: 25px;" align="left">
+			<img alt="GG Logo" src="$webBaseURL/Images/GGLogo.jpg" height="150"
+			width="900">
+				<h2>Welcome to GagaGuru</h2>
+				<p>
+					Hello $userName<BR> <BR> Welcome to GagaGuru <BR>
+					<BR> Please click on the below button for Email Verification.
+
+				</p>
+				<form method="GET" action="$webBaseURL/EmailVerification.html" target="_blank">
+
+					<button
+						style="background-image: url($webBaseURL/Images/ResetPassword.jpg)">
+						<b>Email Verification</b>
+					</button>
+
+					<input 
+						type="hidden" name="emailId" value="$emailID" /> 
+					<input
+						type="hidden" name="authCode" value="$token" /> 
+					<input
+						type="hidden" name="userName" value="$userName" />
+				</form>
+
+				
+			</div>
+		</div>
+		<div>
+			<p>
+				Cheers,<BR> Your friends at GagaGuru
+			</p>
+		</div>
+	</div>
+</body>
+</html>

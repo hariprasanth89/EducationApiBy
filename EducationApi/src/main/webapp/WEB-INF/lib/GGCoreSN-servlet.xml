@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:social="http://www.springframework.org/schema/social"
+	xmlns:facebook="http://www.springframework.org/schema/social/facebook"
+	xmlns:twitter="http://www.springframework.org/schema/social/twitter"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/mvc
+	http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+	http://www.springframework.org/schema/util 
+	http://www.springframework.org/schema/util/spring-util-3.0.xsd  
+	http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-3.0.xsd
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+	http://www.springframework.org/schema/social
+	http://www.springframework.org/schema/social/spring-social.xsd
+	http://www.springframework.org/schema/social/facebook
+	http://www.springframework.org/schema/social/spring-social-facebook.xsd">
+	
+	<context:annotation-config />
+	<!--<context:property-placeholder location="classpath:resources/database.properties" />
+	<context:component-scan base-package="com.sourcebits.ggcoresn" />
+-->
+	<mvc:annotation-driven/>
+
+	<bean id="jspViewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView" />
+		<property name="prefix" value="/WEB-INF/views/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+  
+	<bean id="multipartResolver"
+   		 class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+   		 <!-- one of the properties available; the maximum file size in bytes -->
+   		 <property name="maxUploadSize" value="90000000"/>
+	</bean>
+	<!-- 
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://52.25.221.160:3306/DBStipend" />
+		<property name="username" value="stipend1" />
+		<property name="password" value="" />
+	</bean>
+	 -->
+	 
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="${database.driver}" />
+		<property name="url" value="${database.url}" />
+		<property name="username" value="UserNestlings" />
+		<property name="password" value="${database.password}" />
+	</bean>
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<!--<property name="packagesToScan" value="com.sourcebits.ggcoresn.model"/>
+		<property name="annotatedPackages" value="com.sourcebits.ggcoresn.model" /> -->
+		
+		<!-- enable second level cache and query cache 
+         <property name="hibernate.cache.use_second_level_cache">true</property>
+         <property name="hibernate.cache.use_query_cache">true</property>
+         <property name="net.sf.ehcache.configurationResourceName">/myehcache.xml</property>
+         -->
+         
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+				<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>				
+			</props>
+		</property>
+	</bean>
+	
+<!--	<bean id="sysLanguageDao" class="com.sourcebits.ggcoresn.dao.SysLanguageImpl"/>
+	
+	<bean id="sysLanguageService" class="com.sourcebits.ggcoresn.service.SysLanguageServiceImpl"/> -->
+	
+	<tx:annotation-driven transaction-manager="hibernateTransactionManager"/>
+	<bean id="hibernateTransactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<!-- Mail class -->
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="smtp.gmail.com" />
+		<!-- <property name="port" value="25"/> -->
+		<property name="username" value="Admin@sourcebits.com" />
+		<property name="password" value="" />
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.socketFactory.port">465</prop>
+				<prop key="mail.smtp.socketFactory.class">javax.net.ssl.SSLSocketFactory</prop>
+				<prop key="mail.smtp.port">465</prop>
+			</props>
+		</property>
+	</bean>
+<!--	<bean id="applicationMailer" class="com.sourcebits.ggcoresn.mail.ApplicationMailer">
+		<property name="mailSender" ref="mailSender" />
+	</bean> -->
+	
+
+</beans>

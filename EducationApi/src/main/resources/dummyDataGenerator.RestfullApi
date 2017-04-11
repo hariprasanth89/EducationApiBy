@@ -1,0 +1,32 @@
+User Register ::: http://localhost:8080/EducationApi/user/register
+Method: Post.
+Values JSON Dum Data:  
+ {		
+  		"userType":0,
+          "firstName":"harisam1",
+            "lastName":"hari",
+      			"emailID":"harisam1@gmail.com",
+      			"password":"User@123"
+}
+   Status :: 200 
+   
+   
+ User Login:::  http://localhost:8080/EducationApi/user/login
+  Method : Post.
+  Values JSON Dum Data:  
+ {		
+      			"emailID":"harisam1@gmail.com",
+      			"password":"User@123"
+}
+   Status :: 200 
+   
+   User fetch:::  http://localhost:8080/EducationApi/user/fetch/67
+  Method : Get.
+  Values JSON Dum Data:  
+
+	OutPut Result:
+	{"userID":67,"userType":"STUDENT","firstName":"harisam1","lastName":"hari","emailID":"harisam1@gmail.com","password":"User@123","isVerified":false,"isDeleted":false,"createdDate":"Apr 11, 2017 12:00:00 AM","updatedDate":"Apr 11, 2017 12:00:00 AM","isEmailSent":false,"isFaceBookLogin":false,"homeAddrsID":0,"isGPlusLogin":false}
+
+   Status :: 200 
+   
+   

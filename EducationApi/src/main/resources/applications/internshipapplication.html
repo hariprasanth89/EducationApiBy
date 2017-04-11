@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" ng-app="nestlings">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="keywords" content="nestlings" />
+<title>Nestlings</title>
+<link rel="icon" type="image/png"
+	href="http://nestlings.com/img/logo.png">
+
+
+<style type="text/css">
+@font-face {
+	font-family: 'proxima_novalight';
+	src:
+		url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-light-webfont.eot');
+	src:
+		url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-light-webfont.eot?#iefix')
+		format('embedded-opentype'),
+		url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-light-webfont.woff')
+		format('woff'),
+		url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-light-webfont.ttf')
+		format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'proxima_nova_rgregular';
+	src:
+		url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-regular-webfont.eot');
+	src:
+		url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-regular-webfont.eot?#iefix')
+		format('embedded-opentype'),
+		url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-regular-webfont.woff')
+		format('woff'),
+		url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-regular-webfont.ttf')
+		format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'proxima_novasemibold';
+	src:
+		url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-semibold-webfont.eot');
+	src:
+		url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-semibold-webfont.eot?#iefix')
+		format('embedded-opentype'),
+		url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-semibold-webfont.woff')
+		format('woff'),
+		url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-semibold-webfont.ttf')
+		format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'proxima_nova_rgbold';
+	src:
+		url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-bold-webfont.eot');
+	src:
+		url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-bold-webfont.eot?#iefix')
+		format('embedded-opentype'),
+		url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-bold-webfont.woff')
+		format('woff'),
+		url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-bold-webfont.ttf')
+		format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'proxima_novablack';
+	src:
+		url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-black-webfont.eot');
+	src:
+		url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-black-webfont.eot?#iefix')
+		format('embedded-opentype'),
+		url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-black-webfont.woff')
+		format('woff'),
+		url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-black-webfont.ttf')
+		format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'proxima_novathin';
+	src:
+		url('http://rocketway.net/themebuilder/template/templates/mason/font/proximanova-thin-webfont.eot');
+	src:
+		url('http://rocketway.net/themebuilder/template/templates/mason/font/proximanova-thin-webfont.eot?#iefix')
+		format('embedded-opentype'),
+		url('http://rocketway.net/themebuilder/template/templates/mason/font/proximanova-thin-webfont.woff')
+		format('woff'),
+		url('http://rocketway.net/themebuilder/template/templates/mason/font/proximanova-thin-webfont.ttf')
+		format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+}
+div.sart {
+	width: 200px;
+}
+
+html, body {
+	background-color: #bcbcbc;
+	font-size: 17px;
+}
+
+label {
+	display: inline-block;
+	max-width: 100%;
+	margin-bottom: 5px;
+	font-weight: bold;
+}
+
+.h2, h2 {
+	font-size: 34px;
+}
+
+.h4, h4 {
+	font-size: 18px;
+}
+
+h4, h5, h6, h2 {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+	font-family: inherit;
+	font-weight: 500;
+	line-height: 1.1;
+	color: inherit;
+}
+
+.panel-heading {
+	color: #333;
+	border-color: #ddd;
+}
+
+.panel-heading {
+	padding: 10px 15px;
+	border-bottom: 1px solid transparent;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	background-image: linear-gradient(to bottom, #f5f5f5 0, #e8e8e8 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff5f5f5',
+		endColorstr='#ffe8e8e8', GradientType=0);
+	background-repeat: repeat-x;
+}
+
+* {
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.panel-body {
+	padding: 15px;
+}
+
+.panel {
+	margin-bottom: 20px;
+	background-color: #fff;
+	border: 1px solid transparent;
+	border-radius: 4px;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	line-height: 1.42857143;
+	color: #333;
+	margin: 0;
+}
+
+#wrapper {
+	width: 950px;
+	margin: 0;
+}
+
+#leftcolumn {
+	width: 405px;
+}
+
+#rightcolumn {
+	width: 470px;
+}
+
+#leftcolumn, #rightcolumn {
+	float: left;
+}
+
+#left {
+	width: 180px;
+}
+
+#right {
+	width: 730px;
+}
+
+#left, #right {
+	float: left;
+}
+</style>
+</head>
+<body>
+	<div style="width: 950px; margin: 0 auto;">
+		<div class="container">
+			<div class="panel panel-default">
+				<div class="panel-heading" style="background-color: #e8e8e8;">
+					<center>
+						<img src="http://nestlings.com/img/logo.png">
+						<h2
+							style="font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;">Internship
+							Application</h2>
+					</center>
+				</div>
+				<div class="panel-body">
+					<form style="margin-left: 50px;">
+						<div id="wrapper">
+
+							<div id="leftcolumn">
+								<label style="width: 180px; font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;">Name:</label>
+								<label style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;">firstName
+									lastName</label>
+							</div>
+							<div id="rightcolumn">
+								<label
+									style="width: 125px; font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;">D.O.B:</label>
+								<label
+									style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;">dob</label>
+							</div>
+						</div>
+						<div id="wrapper">
+							<div id="left">
+								<label
+									style="width: 180px; font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;">Local
+									Address:</label>
+							</div>
+							<div id="right">
+								<label
+									style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;">lStreet
+									 <tab></tab> lCity<tab></tab> lZip
+								</label>
+							</div>
+						</div>
+						<div id="wrapper">
+							<div id="left">
+								<label
+									style="width: 180px; font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;">Permanent
+									Address:</label>
+							</div>
+							<div id="right">
+								<label
+									style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;">pStreet<tab>	</tab>
+									 pCity<tab> </tab>pZip
+								</label>
+							</div>
+						</div>
+
+						<div id="wrapper">
+							<div id="leftcolumn">
+								<label
+									style="width: 180px; font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;">Home
+									Phone:</label> <label
+									style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;">hPhoneNo</label>
+							</div>
+							<div id="rightcolumn">
+								<label
+									style="width: 123px; font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;">Work
+									Phone:</label> <label
+									style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;">wPhoneNo</label>
+							</div>
+						</div>
+						<div style="margin-bottom: 15px;">
+							<label
+								style="width: 180px; font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;">Email:</label>
+							<label
+								style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;">emailID</label>
+						</div>
+
+						<div id="wrapper" style="margin-bottom: 15px;">
+							<label
+								style="font-size: 20px; font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;">IN
+								CASE OF EMERGENCY CONTACT</label>
+						</div>
+						<div id="wrapper">
+							<div id="leftcolumn">
+								<label
+									style="width: 180px; font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;">NAME:
+								</label> <label
+									style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;">emergContName</label>
+							</div>
+							<div id="leftcolumn">
+								<label
+									style="width: 125px; font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;">Relationship:</label>
+								<label
+									style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;">relationship</label>
+							</div>
+						</div>
+						<div id="wrapper">
+							<div id="leftcolumn">
+								<label
+									style="width: 180px; font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;">Phone:Cell:</label>
+								<label
+									style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;">emergCellNo</label>
+							</div>
+							<div id="rightcolumn">
+								</label><label
+									style="width: 125px; font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;">Work
+									Phone:</label> <label
+									style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;">emergWorkNo</label>
+							</div>
+						</div>
+						<div id="wrapper" style="margin-top: 15px">
+							<div id="leftcolumn">
+								<label
+									style="width: 180px; font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;">I
+									am applying for the </label> <label
+									style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;">applyFor</label>
+							</div>
+							<div id="rightcolumn">
+								<label
+									style="font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;">Semester.
+									(circle one)</label>
+							</div>
+						</div>
+						<div>
+							<label
+								style="width: 180px; font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;">Date</label>
+							<label
+								style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;">date</label>
+						</div>
+						<div>
+							<label
+								style="width: 180px; font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;">What
+								year are you in?</label> <label
+								style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;">studyYr</label>
+						</div>
+						<div>
+							<label
+								style="width: 180px; font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;">What
+								is your major? </label> <label
+								style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;">major</label>
+						</div>
+						<div>
+							<label
+								style="width: 180px; font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;">Email
+								address: </label> <label
+								style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;">studyEmailID</label>
+						</div>
+						<div style="margin-bottom: 15px; margin-top: 15px">
+							<label
+								style="font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;">Please
+								identify up to four shifts with a total of at least 6
+								hours/week.</label>
+						</div>
+						<table border=1>
+							<thead>
+								<tr>
+									<td style="width: 250px;"><label
+										style="font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;">Day</label></td>
+									<td align="center" style="width: 250px;"><label
+										style="font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;">Timings</label></td>
+							</thead>
+							<tbody>
+								<tr>
+									<td><label
+										style="font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;">Monday</label></td>
+									<td align="center"><label
+										style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;">
+										monAM - monPM</label></td>
+
+								</tr>
+								<tr>
+									<td><label
+										style="font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;">Tuesday</label></td>
+									<td align="center"><label
+										style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;">
+										tueAM - tuePM</label></td>
+
+								</tr>
+								<tr>
+									<td><label
+										style="font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;">Wednesday</label></td>
+									<td align="center"><label
+										style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;">
+										wedAM - wedPM</label></td>
+
+								</tr>
+								<tr>
+									<td><label
+										style="font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;">Thursday</label></td>
+									<td align="center"><label
+										style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;">
+										thuAM - thuPM</label></td>
+
+								</tr>
+								<tr>
+									<td><label
+										style="font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;">Friday</label></td>
+									<td align="center"><label
+										style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;">
+										friAM - friPM</label></td>
+
+								</tr>
+							</tbody>
+						</table>
+						<div
+							style="margin-bottom: 15px; margin-top: 15px; font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;">
+							<label>Please respond to the questions below;</label>
+						</div>
+						<div>
+							<label
+								style="font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;">Why
+								do you want to intern at Nestlings?</label>
+						</div>
+						<p
+							style="width: 500px; text-align: justify; font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;">
+							whyIntern</p>
+						<div>
+							<label
+								style="font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;">What
+								are your Strengths?</label>
+						</div>
+						<p
+							style="width: 500px; text-align: justify; font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;">
+							strengths</p>
+						<div>
+							<label
+								style="font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;">Nestlings
+								is always looking for interns with the following skills, please
+								identify area that you can/or would like to contribute to</label>
+						</div>
+
+						<div id="wrapper">
+							<label style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;">projMang</label><br>
+							<label style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;">ediWri</label><br>
+							<label style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;">fieldDuty</label><br>
+							<label style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;">sociaMedia</label><br>
+							<label style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;">design</label><br>
+							<label style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;">research</label><br>
+						
+						</div>
+				</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	</div>
+</body>
+</html>
